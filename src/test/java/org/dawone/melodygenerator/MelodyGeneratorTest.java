@@ -23,9 +23,15 @@ class MelodyGeneratorTest {
 
     @Test
     void generateMelody_SiCompasesVale1_DevuelveCompas(){
-        String expected = "";
         MelodyGenerator melodyGenerator = new MelodyGenerator(new Random());
-        assertEquals(expected, melodyGenerator.generateMelody(1));
+        String melody = melodyGenerator.generateMelody(1);
+
+        String[] notasMelodia = melody.split(" ");
+
+        int expected = 5;
+        int cantidadNotas = notasMelodia.length;
+
+        assertEquals(expected, cantidadNotas);
     }
 
 
