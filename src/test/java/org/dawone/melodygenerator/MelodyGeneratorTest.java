@@ -38,8 +38,8 @@ class MelodyGeneratorTest {
     }
 
     @Test
-    void generateMelody_SiCompasesVale4_Devuelve4Compas(){
-        int numeroCompases = 4;
+    void generateMelody_SiCompasesVale7_Devuelve7Compas(){
+        int numeroCompases = 7;
         MelodyGenerator melodyGenerator = new MelodyGenerator(new Random());
         String melody = melodyGenerator.generateMelody(numeroCompases);
 
