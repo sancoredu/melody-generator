@@ -51,5 +51,48 @@ class MelodyGeneratorTest {
         assertEquals(expected, cantidadNotasYSeparadores);
     }
 
+    @Test
+    void generateMelody_SiCompasesVale2_TerminaDobleBarra(){
+        int numeroCompases = 2;
+        MelodyGenerator melodyGenerator = new MelodyGenerator(new Random());
+        String melody = melodyGenerator.generateMelody(numeroCompases);
+        String[] notasMelodia = melody.split(" ");
+
+        String expected = "||";
+
+        assertEquals(expected,notasMelodia[notasMelodia.length-1]);
+    }
+
+    @Test
+    void generateMelody_SiCompasesVale2_TerminaEmpiezaIgual(){
+        int numeroCompases = 2;
+        MelodyGenerator melodyGenerator = new MelodyGenerator(new Random());
+        String melody = melodyGenerator.generateMelody(numeroCompases);
+        String[] notasMelodia = melody.split(" ");
+        String primeraNota = notasMelodia[0];
+        String ultimaNota = notasMelodia[notasMelodia.length-2];
+        boolean expected = true;
+        boolean actual = false;
+
+        if(primeraNota.equals(ultimaNota)){
+            actual = true;
+        }
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void generateMelody_SiCompasesVale2_SeparadosPorBarra(){
+        int numeroCompases = 6;
+        MelodyGenerator melodyGenerator = new MelodyGenerator(new Random());
+        String melody = melodyGenerator.generateMelody(numeroCompases);
+
+        String[] compases = melody.split("\\|");
+
+        int expected = numeroCompases;
+        int cantidadCompases = compases.length;
+
+        assertEquals(expected, cantidadCompases);
+    }
 
 }
