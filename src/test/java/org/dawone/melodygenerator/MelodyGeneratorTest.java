@@ -21,7 +21,7 @@ class MelodyGeneratorTest {
 	@ParameterizedTest
 	@ValueSource(ints = {0, 8, -5})
 	void testGenerateMelody_CantidadCompasesInvalida_DeberiaLanzarIllegalArgumentException(int compasesErroneos) {
-		// Act & Assert
+
 		IllegalArgumentException excepcion = assertThrows(IllegalArgumentException.class, () -> {
 			generator.generateMelody(compasesErroneos);
 		}, "Debería lanzar excepción si el número de compases no vale");
